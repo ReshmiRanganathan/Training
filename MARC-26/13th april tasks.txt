@@ -1,0 +1,180 @@
+use shopDB
+db.createCollection("products")
+
+
+db.products.insertMany([
+  { name: "Laptop", category: "Electronics", price: 60000, stock: 15, city: "Hyderabad" },
+  { name: "Mobile", category: "Electronics", price: 20000, stock: 25, city: "Bangalore" },
+  { name: "TV", category: "Electronics", price: 40000, stock: 10, city: "Hyderabad" },
+  { name: "Sofa", category: "Furniture", price: 30000, stock: 5, city: "Chennai" },
+  { name: "Chair", category: "Furniture", price: 5000, stock: 50, city: "Hyderabad" },
+  { name: "Table", category: "Furniture", price: 15000, stock: 20, city: "Bangalore" },
+  { name: "Printer", category: "Electronics", price: 12000, stock: 8, city: "Chennai" }
+])
+
+
+
+
+BASIC QUERIES:
+1
+db.products.find()
+2
+db.products.find({ category: "Electronics" })
+3
+db.products.find({ city: "Hyderabad" })
+4
+db.products.find({ price: { $gt: 30000 } })
+5
+db.products.find({ price: { $lt: 20000 } })
+
+
+
+
+FILTERING QUERIES:
+6
+db.products.find({ price: { $gte: 10000, $lte: 50000 } })
+7
+db.products.find({ category: "Furniture" })
+8
+db.products.find({ category: "Electronics", city: "Hyderabad" })
+9
+db.products.find({ city: { $in: ["Hyderabad", "Bangalore"] } })
+10
+db.products.find({ category: { $ne: "Furniture" } })
+
+
+
+PROJECTION:
+11
+db.products.find({}, { name: 1, price: 1, _id: 0 })
+12
+db.products.find({}, { name: 1, category: 1, city: 1, _id: 0 })
+
+
+
+SORTING:
+13
+db.products.find().sort({ price: 1 })
+14
+db.products.find().sort({ price: -1 })
+
+
+
+LIMIT:
+15
+db.products.find().sort({ price: -1 }).limit(3)
+16
+db.products.find().sort({ price: 1 }).limit(2)
+
+
+
+SKIP:
+17
+db.products.find().skip(2)
+
+
+
+ADDITIONAL FILTERING:
+18
+db.products.find({ stock: { $gt: 10 } })
+19
+db.products.find({ stock: { $lte: 10 } })
+20
+db.products.find({ category: "Electronics", price: { $gt: 40000 } })
+
+
+
+UPDATE:
+21
+db.products.updateOne(
+  { name: "Laptop" },
+  { $set: { price: 65000 } }
+)
+22
+db.products.updateMany(
+  { category: "Electronics" },
+  { $set: { discount: 10 } }
+)
+
+
+
+DELETE:
+23
+db.products.deleteOne({ name: "Printer" })
+24
+db.products.deleteMany({ category: "Furniture" })
+
+
+
+COUNT:
+25
+db.products.countDocuments()
+26
+db.products.countDocuments({ category: "Electronics" })
+
+
+
+AGGREGATION:
+27
+db.products.aggregate([
+  { $group: { _id: "$category", totalStock: { $sum: "$stock" } } }
+])
+28
+db.products.aggregate([
+  { $group: { _id: "$category", avgPrice: { $avg: "$price" } } }
+])
+29
+db.products.aggregate([
+  { $group: { _id: null, maxPrice: { $max: "$price" } } }
+])
+30
+db.products.aggregate([
+  { $group: { _id: null, totalValue: { $sum: { $multiply: ["$price", "$stock"] } } } }
+])
+
+
+
+CRUD OPERATIONS:
+CREATE(INSERT DATA):
+
+db.products.insertOne({
+  name: "Headphones",
+  category: "Electronics",
+  price: 3000,
+  stock: 40,
+  city: "Hyderabad"
+})
+db.products.insertMany([
+  { name: "Mouse", category: "Electronics", price: 800, stock: 60, city: "Chennai" },
+  { name: "Bed", category: "Furniture", price: 25000, stock: 7, city: "Bangalore" }
+])
+
+READ:
+
+db.products.find()
+db.products.find({ category: "Electronics" })
+db.products.find({ price: { $gt: 20000 } })
+db.products.find({}, { name: 1, price: 1, _id: 0 })
+
+UPDATE:
+
+db.products.updateOne(
+  { name: "Mobile" },
+  { $set: { price: 22000 } }
+)
+db.products.updateMany(
+  { category: "Electronics" },
+  { $set: { discount: 10 } }
+)
+db.products.updateOne(
+  { name: "Laptop" },
+  { $inc: { stock: 5 } }
+)
+
+DELETE:
+
+db.products.deleteOne({ name: "Chair" })
+db.products.deleteMany({ category: "Furniture" })
+db.products.deleteMany({})
+
+
