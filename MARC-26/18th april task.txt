@@ -1,0 +1,309 @@
+Python Data Structures
+
+Exercise 1 – Remove Duplicates from a List
+
+You are given a list of customer IDs.
+
+customers = [101,102,103,101,104,102,105]
+
+Tasks
+1. Remove duplicate IDs
+2. Print unique customers
+3. Print total number of unique customers
+
+CODE:
+customers = [101,102,103,101,104,102,105]
+unique_customers = list(set(customers))
+print("Unique Customers:", unique_customers)
+print("Total Unique Customers:", len(unique_customers))
+
+
+
+
+
+Exercise 2 – Frequency Counter
+
+Given a list of numbers:
+
+numbers = [10,20,10,30,20,10,40]
+
+Tasks
+1. Count how many times each number appears
+2. Store the result in a dictionary
+Expected structure
+
+{10:3, 20:2, 30:1, 40:1}
+
+CODE:
+numbers = [10,20,10,30,20,10,40]
+freq = {}
+for num in numbers:
+    freq[num] = freq.get(num, 0) + 1
+print(freq)
+
+
+
+
+
+Exercise 3 – Student Marks Analyzer
+
+students = {
+"Rahul":85,
+"Sneha":92,
+"Arjun":78,
+"Priya":88
+}
+
+Tasks
+1. Print the topper
+2. Print average marks
+3. Print students scoring above 85
+
+CODE:
+students = {"Rahul":85,"Sneha":92,"Arjun":78,"Priya":88}
+topper = max(students, key=students.get)
+average = sum(students.values()) / len(students)
+print("Topper:", topper)
+print("Average Marks:", average)
+print("Students scoring above 85:")
+for name, mark in students.items():
+    if mark > 85:
+        print(name)
+
+
+
+
+
+Exercise 4 – Inventory Management
+
+inventory = {
+"laptop":10,
+"mouse":25,
+"keyboard":15
+}
+
+Tasks
+1. Add "monitor":8
+2. Reduce laptop stock by 2
+3. Print items with stock less than 10
+
+CODE:
+inventory = {"laptop":10,"mouse":25,"keyboard":15}
+inventory["monitor"] = 8
+inventory["laptop"] -= 2
+print("Items with stock less than 10:")
+for item, stock in inventory.items():
+    if stock < 10:
+        print(item, stock)
+
+
+
+
+
+Exercise 5 – Email Domain Extractor
+
+emails = [
+"user1@gmail.com",
+"user2@yahoo.com",
+"user3@gmail.com",
+"user4@outlook.com"
+]
+
+Tasks
+1. Extract domains
+2. Count how many users per domain
+Expected output
+
+{
+"gmail.com":2,
+"yahoo.com":1,
+"outlook.com":1
+}
+
+CODE:
+emails = ["user1@gmail.com","user2@yahoo.com","user3@gmail.com","user4@outlook.com"]
+domains = {}
+for email in emails:
+    domain = email.split("@")[1]
+    domains[domain] = domains.get(domain, 0) + 1
+print(domains)
+
+
+
+
+
+
+Exercise 6 – Common Students in Two
+Classes
+
+classA = {"Rahul","Sneha","Amit","Neha"}
+classB = {"Sneha","Amit","Karan","Riya"}
+
+Tasks
+1. Students in both classes
+2. Students only in Class A
+3. All unique students
+
+CODE:
+classA = {"Rahul","Sneha","Amit","Neha"}
+classB = {"Sneha","Amit","Karan","Riya"}
+print("Both Classes:", classA & classB)
+print("Only Class A:", classA - classB)
+print("All Unique Students:", classA | classB)
+
+
+
+
+
+
+Exercise 7 – Product Price Update
+
+products = {
+"Laptop":75000,
+"Mobile":30000,
+"Tablet":25000
+}
+
+Tasks
+1. Increase all prices by 10%
+
+2. Print updated prices
+
+CODE:
+products = {"Laptop":75000,"Mobile":30000,"Tablet":25000}
+for item in products:
+    products[item] = products[item] * 1.10
+print(products)
+
+
+
+
+
+
+Exercise 8 – Word Counter
+
+Given a sentence
+
+sentence = "python is easy and python is powerful"
+
+Tasks
+1. Count frequency of each word
+2. Store results in dictionary
+Expected output
+
+{
+"python":2,
+"is":2,
+"easy":1,
+"and":1,
+"powerful":1
+}
+
+CODE:
+sentence = "python is easy and python is powerful"
+words = sentence.split()
+count = {}
+for word in words:
+    count[word] = count.get(word, 0) + 1
+print(count)
+
+
+
+
+
+
+Exercise 9 – Highest Selling Product
+
+sales = [
+{"product":"Laptop","qty":5},
+{"product":"Mouse","qty":20},
+{"product":"Laptop","qty":3},
+{"product":"Keyboard","qty":10}
+]
+
+Tasks
+1. Calculate total sales per product
+2. Find highest selling product
+
+CODE:
+sales = [{"product":"Laptop","qty":5},{"product":"Mouse","qty":20},{"product":"Laptop","qty":3},{"product":"Keyboard","qty":10}]
+total = {}
+for item in sales:
+    product = item["product"]
+    qty = item["qty"]
+    total[product] = total.get(product, 0) + qty
+highest = max(total, key=total.get)
+print("Total Sales:", total)
+print("Highest Selling Product:", highest)
+
+
+
+
+
+Exercise 10 – User Login Tracker
+
+logins = [
+("Rahul","10:00"),
+("Sneha","10:10"),
+("Rahul","11:00"),
+("Arjun","11:15"),
+("Sneha","11:30")
+]
+
+Tasks
+1. Count how many times each user logged in
+2. Store results in dictionary
+Expected output
+
+{
+"Rahul":2,
+"Sneha":2,
+"Arjun":1
+}
+
+CODE:
+logins = [("Rahul","10:00"),("Sneha","10:10"),("Rahul","11:00"),("Arjun","11:15"),("Sneha","11:30")]
+tracker = {}
+for user, time in logins:
+    tracker[user] = tracker.get(user, 0) + 1
+print(tracker)
+
+
+
+
+
+
+Final Challenge
+
+Exercise 11 – E-commerce Order Analysis
+
+orders = [
+{"order_id":1,"customer":"Rahul","amount":2500},
+{"order_id":2,"customer":"Sneha","amount":1800},
+{"order_id":3,"customer":"Rahul","amount":3200},
+{"order_id":4,"customer":"Amit","amount":1500}
+]
+
+Tasks
+1. Calculate total spending per customer
+
+2. Find highest spending customer
+3. Count total orders per customer
+
+CODE:
+orders = [{"order_id":1,"customer":"Rahul","amount":2500},{"order_id":2,"customer":"Sneha","amount":1800},{"order_id":3,"customer":"Rahul","amount":3200},{"order_id":4,"customer":"Amit","amount":1500}]
+spending = {}
+count = {}
+for order in orders:
+    customer = order["customer"]
+    amount = order["amount"]
+    spending[customer] = spending.get(customer, 0) + amount
+    count[customer] = count.get(customer, 0) + 1
+highest = max(spending, key=spending.get)
+print("Total Spending:", spending)
+print("Highest Spending Customer:", highest)
+print("Total Orders:", count)
+
+
+
+
