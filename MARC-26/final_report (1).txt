@@ -1,0 +1,14 @@
+FINAL REPORT
+----------------------
+Top Employee : Priya - 80000
+Average Salary : 66428.57142857143
+
+Department Employee Count:
+HR : 2
+None : 1
+Finance : 1
+IT : 3
+
+Total Sales : 244000
+Best Sales Employee ID : 1
+Sales Amount : 162000
