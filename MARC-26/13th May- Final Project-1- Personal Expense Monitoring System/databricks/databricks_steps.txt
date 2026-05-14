@@ -1,0 +1,13 @@
+1. Upload cleaned expense CSV data into Azure Databricks.
+
+2. Create Spark DataFrame from uploaded dataset.
+
+3. Combine user and expense data.
+
+4. Create monthly expense summary table.
+
+5. Detect high spending alerts.
+
+6. Save final output as CSV or Delta table.
+
+7. Use the final dataset for dashboard/report generation.

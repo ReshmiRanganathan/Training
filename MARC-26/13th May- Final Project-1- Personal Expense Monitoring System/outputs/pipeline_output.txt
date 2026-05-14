@@ -1,0 +1,17 @@
+Run Expense Analysis
+==============================
+Monthly Expense Summary:
+category  Bills   Food  Shopping  Travel
+month
+2026-01   800.0  550.0    1200.0   500.0
+
+Average Expense:
+610.0
+
+Generate Report
+==============================
+Monthly Expense Report Generated
+
+Expense Alert
+==============================
+Alert: High expenses detected

@@ -1,0 +1,5 @@
+month,category,total_expense,alert
+2026-01,Food,550,No
+2026-01,Travel,500,No
+2026-01,Shopping,1200,Yes
+2026-01,Bills,800,No

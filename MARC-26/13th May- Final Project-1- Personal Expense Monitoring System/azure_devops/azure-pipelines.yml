@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+
+- script: |
+    python python_processing/expense_analysis.py
+  displayName: 'Run Expense Analysis'
+
+- script: |
+    echo Monthly Expense Report Generated
+  displayName: 'Generate Report'
+
+- script: |
+    echo Alert: High expenses detected
+  displayName: 'Expense Alert'
