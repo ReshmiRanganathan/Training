@@ -1,0 +1,17 @@
+Run Energy Analysis
+==============================
+Room-wise Energy Summary:
+room_id
+101    14.3
+102     4.3
+
+Average Energy Usage:
+3.1
+
+Generate Report
+==============================
+Weekly Energy Report Generated
+
+Energy Alert
+==============================
+Alert: High energy usage detected

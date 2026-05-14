@@ -1,0 +1,13 @@
+1. Upload cleaned energy usage CSV data into Azure Databricks.
+
+2. Create Spark DataFrame from uploaded dataset.
+
+3. Build ETL pipeline for daily and weekly energy summaries.
+
+4. Calculate room-wise and device-wise energy usage.
+
+5. Detect high energy consumption devices.
+
+6. Save final results as CSV or Delta table.
+
+7. Use the final dataset for dashboards and alerts.

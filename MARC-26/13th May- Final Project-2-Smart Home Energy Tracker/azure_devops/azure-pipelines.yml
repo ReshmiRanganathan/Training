@@ -1,0 +1,23 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+
+- script: |
+    python python_processing/energy_analysis.py
+  displayName: 'Run Energy Analysis'
+
+- script: |
+    echo Weekly Energy Report Generated
+  displayName: 'Generate Report'
+
+- script: |
+    echo Alert: High energy usage detected
+  displayName: 'Energy Alert'

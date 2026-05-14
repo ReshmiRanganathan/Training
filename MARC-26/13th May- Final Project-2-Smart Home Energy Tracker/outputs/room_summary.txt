@@ -1,0 +1,7 @@
+Room-wise Energy Summary:
+room_id
+101    14.3
+102     4.3
+
+Average Energy Usage:
+3.1
